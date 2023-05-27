@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls } from "@react-three/drei";
+import { Center, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Pattern1 } from "./components/Pattern1";
 import { Pattern2 } from "./components/Pattern2";
 import { Pattern3 } from "./components/Pattern3";
@@ -53,16 +53,19 @@ import { Pattern46 } from "./components/pattern46";
 import { Pattern48 } from "./components/pattern48";
 import { Pattern49 } from "./components/pattern49";
 import { Pattern50 } from "./components/pattern50";
+import { Sea } from "./components/Sea";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Container>
       <Canvas>
         <OrbitControls />
+        <PerspectiveCamera
+          makeDefault
+          position={[2, 2, 0]}
+        />
         <Center>
-          <Pattern50 />
+          <Sea />
         </Center>
       </Canvas>
     </Container>
