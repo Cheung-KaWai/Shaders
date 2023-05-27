@@ -56,6 +56,7 @@ import { Pattern50 } from "./components/pattern50";
 import { Sea } from "./components/Sea";
 import { Bos1 } from "./components/Bos1";
 import { Bos3 } from "./components/Bos3";
+import { Bos4 } from "./components/Bos4";
 
 function App() {
   return (
@@ -67,7 +68,7 @@ function App() {
           position={[2, 0, 0]}
         />
         <Center>
-          <Bos3 />
+          <Bos4 />
         </Center>
       </Canvas>
     </Container>
