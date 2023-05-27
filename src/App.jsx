@@ -54,6 +54,8 @@ import { Pattern48 } from "./components/pattern48";
 import { Pattern49 } from "./components/pattern49";
 import { Pattern50 } from "./components/pattern50";
 import { Sea } from "./components/Sea";
+import { Bos1 } from "./components/Bos1";
+import { Bos3 } from "./components/Bos3";
 
 function App() {
   return (
@@ -62,10 +64,10 @@ function App() {
         <OrbitControls />
         <PerspectiveCamera
           makeDefault
-          position={[2, 2, 0]}
+          position={[2, 0, 0]}
         />
         <Center>
-          <Sea />
+          <Bos3 />
         </Center>
       </Canvas>
     </Container>
