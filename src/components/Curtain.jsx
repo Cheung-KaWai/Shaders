@@ -28,7 +28,10 @@ export const Curtain = () => {
       // rotation={[Math.PI / 2, 0, 0]}
     >
       <planeGeometry args={[1, 1, 512, 512]} />
-      <bosShaderMaterial side={DoubleSide} />
+      <bosShaderMaterial
+        side={DoubleSide}
+        transparent={true}
+      />
     </mesh>
   );
 };

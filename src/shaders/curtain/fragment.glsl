@@ -29,8 +29,7 @@ float blinnWyvillCosineApproximation (float x){
 void main(){
   float y = blinnWyvillCosineApproximation(vUv.x);
 
-  vec3 color = vec3(plot(vUv,y));
-  color += mix(vec3(0.0),vec3(1.0), vElevation *3.0);
+  vec3 color = mix(vec3(0.7),vec3(1.0), vElevation * 3.0);
 
-  gl_FragColor = vec4(vec3(vUv,1.0),1);
+  gl_FragColor = vec4(color,0.5);
 }

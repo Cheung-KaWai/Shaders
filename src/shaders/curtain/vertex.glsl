@@ -46,20 +46,30 @@ float cnoise(vec2 P){
   return 2.3 * n_xy;
 }
 
+
 void main(){
   vUv = uv;
   vec4 modelPosition = modelMatrix * vec4(position,1.0);
 
-  float rippleAmplitude = 0.05;
+  float rippleAmplitude = 0.08;
   float rippleAmplitude2 = 0.02;
   float rippleFrequency = 10.0;
-  float rippleFrequency2 = 50.0;
+  float rippleFrequency2 = 40.0;
+  float rippleFrequency3 = 5.0;
 
+  // waves X coordinate
   float ripplesX = 
-    sin(uv.x * rippleFrequency + uTime) * (1.0 - uv.y) * rippleAmplitude
-    + sin(uv.x * rippleFrequency2) * uv.y * rippleAmplitude2;
+    sin(uv.x * rippleFrequency + uTime * 0.4) * (1.0 - uv.y) * rippleAmplitude // bottom waves
+    + sin(uv.x * rippleFrequency2) * uv.y * rippleAmplitude2 // top waves
+    + (1.0-uv.y) * 0.2; // angled curtain 
+
+  // waves Y coordinate
+  float ripplesY = 
+    sin(uv.y * rippleFrequency3 + uTime) * (1.0 - uv.y) * rippleAmplitude; 
                 
-  modelPosition.z += ripplesX;
+  modelPosition.z += ripplesX + ripplesY;
+
+  vElevation = ripplesX;
 
   vec4 viewPosition = viewMatrix * modelPosition;
   vec4 projectionPosition = projectionMatrix * viewPosition;

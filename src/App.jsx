@@ -63,6 +63,10 @@ function App() {
   return (
     <Container>
       <Canvas>
+        <color
+          attach="background"
+          args={["white"]}
+        />
         <OrbitControls />
         <PerspectiveCamera
           makeDefault
