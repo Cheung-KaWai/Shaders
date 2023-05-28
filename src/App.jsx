@@ -57,6 +57,7 @@ import { Sea } from "./components/Sea";
 import { Bos1 } from "./components/Bos1";
 import { Bos3 } from "./components/Bos3";
 import { Bos4 } from "./components/Bos4";
+import { Curtain } from "./components/Curtain";
 
 function App() {
   return (
@@ -65,10 +66,10 @@ function App() {
         <OrbitControls />
         <PerspectiveCamera
           makeDefault
-          position={[2, 0, 0]}
+          position={[0, 0, 2]}
         />
         <Center>
-          <Bos4 />
+          <Curtain />
         </Center>
       </Canvas>
     </Container>
