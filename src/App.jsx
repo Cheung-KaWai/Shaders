@@ -59,6 +59,7 @@ import { Bos3 } from "./components/Bos3";
 import { Bos4 } from "./components/Bos4";
 import { Curtain } from "./components/Curtain";
 import { Clock } from "./components/Clock";
+import { Fancy } from "./components/Fancy";
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
         />
         <Center>
           <Clock />
+          <Fancy />
         </Center>
       </Canvas>
     </Container>

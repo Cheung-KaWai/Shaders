@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
-import vertexShader from "../shaders/clock/vertex.glsl";
-import fragmentShader from "../shaders/clock/fragment.glsl";
+import vertexShader from "../shaders/fancy/vertex.glsl";
+import fragmentShader from "../shaders/fancy/fragment.glsl";
 import { DoubleSide } from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { shaderMaterial } from "@react-three/drei";
 
-const ClockShaderMaterial = shaderMaterial(
+const FancyShaderMaterial = shaderMaterial(
   {
     uTime: 0,
   },
@@ -13,9 +13,9 @@ const ClockShaderMaterial = shaderMaterial(
   fragmentShader
 );
 
-extend({ ClockShaderMaterial });
+extend({ FancyShaderMaterial });
 
-export const Clock = () => {
+export const Fancy = () => {
   const shader = useRef();
 
   useFrame(({ clock }) => {
@@ -25,11 +25,10 @@ export const Clock = () => {
   return (
     <mesh
       ref={shader}
-      position-x={1.5}
       // rotation={[Math.PI / 2, 0, 0]}
     >
       <planeGeometry args={[1, 1, 512, 512]} />
-      <clockShaderMaterial side={DoubleSide} />
+      <fancyShaderMaterial side={DoubleSide} />
     </mesh>
   );
 };
