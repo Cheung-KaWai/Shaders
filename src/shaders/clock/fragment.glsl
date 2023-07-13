@@ -19,7 +19,7 @@ void main(){
   vec2 vUvRotate = rotate(vUv, uTime, vec2(0.5,0.5));
   float angle = atan(vUvRotate.x -0.5,vUvRotate.y -0.5);
   angle /= PI *2.0;
-  angle += 0.25;
+  angle += 0.5;
   float strength = angle;
 
 
