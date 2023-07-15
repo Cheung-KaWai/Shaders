@@ -60,8 +60,12 @@ import { Bos4 } from "./components/Bos4";
 import { Curtain } from "./components/Curtain";
 import { Clock } from "./components/Clock";
 import { Fancy } from "./components/Fancy";
+import { Transition } from "./components/Transition";
+import { useTransitionStore } from "./store/store";
 
 function App() {
+  const update = useTransitionStore((store) => store.update);
+
   return (
     <Container>
       <Canvas>
@@ -75,10 +79,14 @@ function App() {
           position={[0, 0, 2]}
         />
         <Center>
-          <Clock />
-          <Fancy />
+          <Transition />
         </Center>
       </Canvas>
+      <ButtonContainer>
+        <button onClick={() => update("textureName", "color1.jpg")}>texture 1</button>
+        <button onClick={() => update("textureName", "color2.jpg")}>texture 2</button>
+        <button onClick={() => update("textureName", "color3.jpg")}>texture 3</button>
+      </ButtonContainer>
     </Container>
   );
 }
@@ -88,4 +96,10 @@ export default App;
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
+`;
+
+const ButtonContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
