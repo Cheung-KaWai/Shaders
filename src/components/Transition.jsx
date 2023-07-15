@@ -32,18 +32,11 @@ export const Transition = () => {
       uTime: 0,
       uTexture: { value: 0.0 },
       uTexture2: { value: 0.0 },
-      uProgress: { value: 0.0 },
+      uProgress: { value: 1.0 },
       uTest: { value: "color1" },
     }),
     []
   );
-
-  useEffect(() => {
-    //set initial texture
-    color1.flipY = false;
-    color1.colorSpace = SRGBColorSpace;
-    cubeRef.current.material.uniforms.uTexture.value = color1;
-  }, []);
 
   useEffect(() => {
     //changing texture
@@ -54,6 +47,13 @@ export const Transition = () => {
     cubeRef.current.material.uniforms.uTest.value = textureName;
     cubeRef.current.material.uniforms.uProgress.value = 0.0;
   }, [textureName]);
+
+  useEffect(() => {
+    //set initial texture
+    color1.flipY = false;
+    color1.colorSpace = SRGBColorSpace;
+    cubeRef.current.material.uniforms.uTexture.value = color1;
+  }, []);
 
   useFrame((state, delta) => {
     easing.damp(cubeRef.current.material.uniforms.uProgress, "value", 1, 1, delta);
