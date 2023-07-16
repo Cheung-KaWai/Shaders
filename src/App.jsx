@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls, PerspectiveCamera, useTexture } from "@react-three/drei";
+import { Center, Environment, OrbitControls, PerspectiveCamera, useTexture } from "@react-three/drei";
 import { Pattern1 } from "./components/Pattern1";
 import { Pattern2 } from "./components/Pattern2";
 import { Pattern3 } from "./components/Pattern3";
@@ -82,16 +82,17 @@ function App() {
         <OrbitControls />
         <PerspectiveCamera
           makeDefault
-          position={[0, 0, 2]}
+          position={[0, 2, 4]}
         />
+        <Environment preset="city" />
         <Center>
           <Transition />
         </Center>
       </Canvas>
       <ButtonContainer>
-        <button onClick={() => update("textureName", "color1.jpg")}>texture 1</button>
-        <button onClick={() => update("textureName", "color2.jpg")}>texture 2</button>
-        <button onClick={() => update("textureName", "color3.jpg")}>texture 3</button>
+        <button onClick={() => update("textureName", "1")}>texture 1</button>
+        <button onClick={() => update("textureName", "2")}>texture 2</button>
+        <button onClick={() => update("textureName", "3")}>texture 3</button>
       </ButtonContainer>
     </Container>
   );
