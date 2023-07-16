@@ -1,28 +1,11 @@
-import { Box, Plane, shaderMaterial, useTexture } from "@react-three/drei";
+import { useTexture } from "@react-three/drei";
 import React, { useEffect, useMemo, useRef } from "react";
 import vertexShader from "../shaders/transition/vertex.glsl";
 import fragmentShader from "../shaders/transition/fragment.glsl";
-import { extend, useFrame } from "@react-three/fiber";
-import { DoubleSide, SRGBColorSpace } from "three";
+import { useFrame } from "@react-three/fiber";
+import { SRGBColorSpace } from "three";
 import { useTransitionStore } from "../store/store";
 import { easing } from "maath";
-
-// const TransitionMaterial = shaderMaterial(
-//   {
-//     uTime: 0,
-//     uTexture: null,
-//     uTexture2: null,
-//     uPercentage: 0.0,
-//     uTest: "color1",
-//   },
-//   vertexShader,
-//   fragmentShader
-// );
-
-// extend(TransitionMaterial);
-useTexture.preload("/textures/color1.jpg");
-useTexture.preload("/textures/color2.jpg");
-useTexture.preload("/textures/color3.jpg");
 
 export const Transition = () => {
   const cubeRef = useRef();
@@ -63,10 +46,6 @@ export const Transition = () => {
   });
 
   return (
-    // <Box
-    //   ref={cubeRef}
-    //   material={new TransitionMaterial()}
-    // />
     <mesh ref={cubeRef}>
       <boxGeometry />
       <shaderMaterial

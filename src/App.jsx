@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Center, OrbitControls, PerspectiveCamera, useTexture } from "@react-three/drei";
 import { Pattern1 } from "./components/Pattern1";
 import { Pattern2 } from "./components/Pattern2";
 import { Pattern3 } from "./components/Pattern3";
@@ -62,7 +62,13 @@ import { Clock } from "./components/Clock";
 import { Fancy } from "./components/Fancy";
 import { Transition } from "./components/Transition";
 import { useTransitionStore } from "./store/store";
+import { paths } from "./data/data";
 
+{
+  for (let i = 0; i < paths.length; i++) {
+    useTexture.preload(paths[i]);
+  }
+}
 function App() {
   const update = useTransitionStore((store) => store.update);
 
