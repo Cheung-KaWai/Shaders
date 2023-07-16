@@ -20,6 +20,9 @@ import { easing } from "maath";
 // );
 
 // extend(TransitionMaterial);
+useTexture.preload("/textures/color1.jpg");
+useTexture.preload("/textures/color2.jpg");
+useTexture.preload("/textures/color3.jpg");
 
 export const Transition = () => {
   const cubeRef = useRef();
