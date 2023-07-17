@@ -63,6 +63,7 @@ import { Fancy } from "./components/Fancy";
 import { Transition } from "./components/Transition";
 import { useTransitionStore } from "./store/store";
 import { paths } from "./data/data";
+import { Fancy2 } from "./components/Fancy2";
 
 {
   for (let i = 0; i < paths.length; i++) {
@@ -86,14 +87,14 @@ function App() {
         />
         <Environment preset="city" />
         <Center>
-          <Transition />
+          <Fancy2 />
         </Center>
       </Canvas>
-      <ButtonContainer>
+      {/* <ButtonContainer>
         <button onClick={() => update("textureName", "1")}>texture 1</button>
         <button onClick={() => update("textureName", "2")}>texture 2</button>
         <button onClick={() => update("textureName", "3")}>texture 3</button>
-      </ButtonContainer>
+      </ButtonContainer> */}
     </Container>
   );
 }
